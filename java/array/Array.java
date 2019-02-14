@@ -77,6 +77,6 @@ public class Array {
         array.insert(5, 8);
         int v = array.find(2);
         System.out.println(v);  // 10
-        array.find(8);
+//        array.find(8);
     }
 }
