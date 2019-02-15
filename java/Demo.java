@@ -1,21 +1,8 @@
 import linkedlist.SingleLinkedList;
 
-import java.util.LinkedList;
-
 public class Demo {
     public static void main(String... args) {
-//        listTest();
         singleLinkedListTest();
-    }
-
-    private static void listTest() {
-        LinkedList<String> li = new LinkedList<>();
-        li.add("sd");
-        li.add("kd");
-        li.addFirst("ad");
-        li.addLast("zd");
-        li.remove();
-        System.out.println(li);
     }
 
     private static void singleLinkedListTest() {
