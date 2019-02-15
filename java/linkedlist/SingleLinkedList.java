@@ -23,17 +23,22 @@ public class SingleLinkedList<E> {
     }
 
     public void insert(Integer index, E value) {
-        if (index < 0) {
+        int count = this.length();
+        if (index < 0 || index > count) {
             throw new IllegalArgumentException();
-        }
-        Node<E> it = head;
-        for (int i = 0; i < index; i++) {
-            if (it == null || !it.hasNext()) {
-                throw new IllegalArgumentException();
+        } else if (index == 0) {
+            addFirst(value);
+        } else if (index == count) {
+            addLast(value);
+        } else {
+            Node<E> it = head;
+            Node<E> node = new Node<>(value);
+            for (int i = 0; i < index - 1; i++) {
+                it = it.getNext();
             }
-            it = it.getNext();
+            node.setNext(it.getNext());
+            it.setNext(node);
         }
-        Node<E> node = new Node<>(value);
     }
 
     public void addFirst(E value) {
@@ -121,6 +126,20 @@ public class SingleLinkedList<E> {
         }
         return false;
     }
+
+    public int length() {
+        if (head == null) {
+            return 0;
+        }
+        int count = 1;
+        Node<E> it = head;
+        while (it.hasNext()) {
+            count++;
+            it = it.getNext();
+        }
+        return count;
+    }
+
 
     @Override
     public String toString(){
